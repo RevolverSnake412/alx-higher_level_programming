@@ -24,7 +24,6 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
-
     @property
     def size(self):
         """size property"""
@@ -52,6 +51,6 @@ class Square:
             for j in range(self.__size):
                 for k in range(self.__position[0]):
                     print(" ", end="")
-                for l in range(self.__size):
+                for x in range(self.__size):
                     print("#", end="")
                 print("")
