@@ -10,7 +10,7 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        if id == None:
+        if id is None:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
         else:
@@ -21,7 +21,7 @@ class Base:
         if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
         return json.dumps(list_dictionaries)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         file_path = cls.__name__ + ".json"
@@ -31,13 +31,13 @@ class Base:
             else:
                 list_dicts = [i.to_dictionary() for i in list_objs]
                 json_file.write(Base.to_json_string(list_dicts))
-        
+
     @staticmethod
     def from_json_string(json_string):
         if json_string is None or len(json_string) == 0:
-            return "[]" 
+            return "[]"
         return json.loads(json_string)
-    
+
     @classmethod
     def create(cls, **dictionary):
         if dictionary and dictionary != {}:
@@ -47,7 +47,7 @@ class Base:
                 new = cls(1)
             new.update(**dictionary)
             return new
-    
+
     @classmethod
     def load_from_file(cls):
         file_path = str(cls.__name__) + ".json"
@@ -57,7 +57,7 @@ class Base:
                 return [cls.create(**d) for d in list_dicts]
         except IOError:
             return []
-        
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Write the CSV serialization of a list of objects to a file.
@@ -120,5 +120,5 @@ class Base:
                 tur.left(90)
                 tur.forward(square.height)
                 tur.left(90)
-            
+
         turtle.exitonclick()
