@@ -76,13 +76,6 @@ class Rectangle(Base):
                 print(self.x * " " + self.width * "#", end="")
                 print("")
 
-    def __str__(self):
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                                                       self.x,
-                                                       self.y,
-                                                       self.width,
-                                                       self.height)
-
     def update(self, *args, **kwargs):
         if args and len(args) != 0:
             a = 0
@@ -126,3 +119,10 @@ class Rectangle(Base):
             "height": self.height,
             "width": self.width
         }
+
+    def __str__(self):
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
