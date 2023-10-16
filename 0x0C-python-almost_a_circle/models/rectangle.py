@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """rectangle.py"""
-
 from models.base import Base
 
 
@@ -17,6 +16,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
+        """set width"""
         return self.__width
 
     @width.setter
@@ -29,6 +29,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """set height"""
         return self.__height
 
     @height.setter
@@ -41,6 +42,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """set x"""
         return self.__x
 
     @x.setter
@@ -53,6 +55,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """set y"""
         return self.__y
 
     @y.setter
@@ -64,9 +67,11 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
+        """calculates area"""
         return self.width * self.height
 
     def display(self):
+        """visualize rectangle"""
         if self.x is None and self.y is None:
             for i in range(self.height):
                 print(self.width * "#", end="")
@@ -79,6 +84,7 @@ class Rectangle(Base):
                 print("")
 
     def update(self, *args, **kwargs):
+        """updates"""
         if args and len(args) != 0:
             a = 0
             for arg in args:
@@ -114,6 +120,7 @@ class Rectangle(Base):
                     self.y = v
 
     def to_dictionary(self):
+        """converts to dict"""
         return {
             "x": self.x,
             "y": self.y,

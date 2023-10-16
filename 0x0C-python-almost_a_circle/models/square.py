@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """square.py"""
-
 from models.rectangle import Rectangle
 
 
@@ -14,6 +13,7 @@ class Square(Rectangle):
 
     @property
     def size(self):
+        """set size"""
         return self.width
 
     @size.setter
@@ -22,6 +22,7 @@ class Square(Rectangle):
         self.height = value
 
     def update(self, *args, **kwargs):
+        """updates"""
         if args and len(args) != 0:
             a = 0
             for arg in args:
@@ -53,6 +54,7 @@ class Square(Rectangle):
                     self.y = v
 
     def to_dictionary(self):
+        """converts square to dict"""
         return {
             "id": self.id,
             "size": self.width,
