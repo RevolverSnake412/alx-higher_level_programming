@@ -1,9 +1,11 @@
 #!/usr/bin/node
-const x = process.argv[2];
-let S = 1;
-if (!isNaN(x)) {
+if (process.argv.length <= 2 || isNaN(process.argv[2])) {
+  console.log('1');
+} else {
+  const x = process.argv[2];
+  let S = 1;
   for (let i = 1; i <= x; i++) {
     S = S * i;
   }
+  console.log(S);
 }
-console.log(S);
