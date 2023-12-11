@@ -1,11 +1,14 @@
 #!/usr/bin/node
 if (process.argv.length <= 2 || isNaN(process.argv[2])) {
-  console.log('1');
+  console.log(1);
 } else {
-  const x = process.argv[2];
-  let S = 1;
-  for (let i = 1; i <= x; i++) {
-    S = S * i;
+  function fact(x) {
+    let S = 1;
+    if (x > 1) {
+      S = fact(x - 1);
+    }
+    return (S * x);
   }
-  console.log(S);
+  let Result = fact(Number(process.argv[2]));
+  console.log(Result);
 }
