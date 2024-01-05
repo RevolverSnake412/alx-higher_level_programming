@@ -3,25 +3,21 @@
 
 
 def find_peak(list_of_integers):
-    """Finds the peak in list_of_integers"""
-    size = len(list_of_integers)
-    peak = 0
-
-    if size == 0:
+    """Finds a peak in list_of_integers"""
+    if list_of_integers is None or list_of_integers == []:
         return None
-
-    for i in range(1, size - 1, 2):
-        current = list_of_integers[i]
-        prev = list_of_integers[i - 1]
-        next = list_of_integers[i + 1]
-
-        if size % 2 == 0 and i == size - 3:
-            current = list_of_integers[i + 1]
-            prev = list_of_integers[(i - 1) + 1]
-            next = list_of_integers[(i + 1) + 1]
-
-        if current >= prev and current >= next:
-            if current > peak:
-                peak = current
-
-    return peak
+    lo = 0
+    hi = len(list_of_integers)
+    mid = ((hi - lo) // 2) + lo
+    mid = int(mid)
+    if hi == 1:
+        return list_of_integers[0]
+    if hi == 2:
+        return max(list_of_integers)
+    if list_of_integers[mid] >= list_of_integers[mid - 1] and\
+            list_of_integers[mid] >= list_of_integers[mid + 1]:
+        return list_of_integers[mid]
+    if mid > 0 and list_of_integers[mid] < list_of_integers[mid + 1]:
+        return find_peak(list_of_integers[mid:])
+    if mid > 0 and list_of_integers[mid] < list_of_integers[mid - 1]:
+        return find_peak(list_of_integers[:mid])
